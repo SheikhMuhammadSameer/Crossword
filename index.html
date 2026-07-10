@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DSA::Crossword — Data Structures &amp; Algorithms Crossword</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="crt-overlay" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">&gt;_</span>
+        <div class="brand-text">
+          <h1>DSA<span class="brand-accent">::</span>Crossword</h1>
+          <p class="brand-sub">a data-structures &amp; algorithms puzzle</p>
+        </div>
+      </div>
+
+      <div class="stat-strip" role="status" aria-live="polite">
+        <div class="stat">
+          <span class="stat-label">Score</span>
+          <span class="stat-value" id="score-value">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Time</span>
+          <span class="stat-value" id="timer-value">00:00</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Best</span>
+          <span class="stat-value" id="high-score-value">0</span>
+        </div>
+      </div>
+    </header>
+
+    <main id="app-root" class="app-root">
+      <section class="control-deck" aria-label="Game controls">
+        <div class="control-group">
+          <label for="difficulty-select">Difficulty</label>
+          <select id="difficulty-select">
+            <option value="easy">Easy · O(1) warm-up</option>
+            <option value="medium" selected>Medium · balanced</option>
+            <option value="hard">Hard · full stack</option>
+          </select>
+        </div>
+
+        <div class="control-group control-buttons">
+          <button id="new-game-btn" class="btn btn-primary">New Puzzle</button>
+          <button id="hint-btn" class="btn btn-ghost">💡 Hint</button>
+          <button id="check-btn" class="btn btn-ghost">Check Board</button>
+          <button id="restart-btn" class="btn btn-danger">Restart</button>
+        </div>
+      </section>
+
+      <div
+        id="message-line"
+        class="message-line"
+        role="status"
+        aria-live="polite"
+      ></div>
+
+      <section class="play-area">
+        <div class="grid-panel">
+          <div
+            id="crossword-grid"
+            class="crossword-grid"
+            role="grid"
+            aria-label="Crossword grid"
+          ></div>
+          <div class="legend">
+            <span class="legend-swatch legend-correct"></span> correct
+            <span class="legend-swatch legend-wrong"></span> incorrect
+            <span class="legend-swatch legend-hint"></span> hinted
+          </div>
+        </div>
+
+        <div class="clues-panel">
+          <div class="clue-block">
+            <h2 class="clue-heading">Across</h2>
+            <ol id="across-clues" class="clue-list"></ol>
+          </div>
+          <div class="clue-block">
+            <h2 class="clue-heading">Down</h2>
+            <ol id="down-clues" class="clue-list"></ol>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-note">
+      <p>
+        Board: 2D array &nbsp;·&nbsp; Dictionary: Hash Table (O(1) avg lookup)
+        &nbsp;·&nbsp; Word verification: Binary Search (O(log n)) &nbsp;·&nbsp;
+        Vanilla JS, no frameworks.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
